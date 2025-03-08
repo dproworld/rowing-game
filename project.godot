@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="rowing-game"
+config/name="rowing"
+run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="rowing-game"
+project/assembly_name="rowing"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
