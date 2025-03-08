@@ -1,0 +1,176 @@
+[gd_scene load_steps=17 format=3 uid="uid://dtedo0aqmrumr"]
+
+[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://boatTempalate.png" id="1_egmdp"]
+[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://saveboat.png" id="2_16peu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
+atlas = ExtResource("2_16peu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_202cy"]
+atlas = ExtResource("2_16peu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rylkh"]
+atlas = ExtResource("2_16peu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u70df"]
+atlas = ExtResource("2_16peu")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tngq3"]
+atlas = ExtResource("2_16peu")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh0up"]
+atlas = ExtResource("2_16peu")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs4kj"]
+atlas = ExtResource("2_16peu")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1336k"]
+atlas = ExtResource("2_16peu")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bol06"]
+atlas = ExtResource("2_16peu")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbolg"]
+atlas = ExtResource("2_16peu")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxm6e"]
+atlas = ExtResource("2_16peu")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqulk"]
+atlas = ExtResource("2_16peu")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n75in"]
+atlas = ExtResource("2_16peu")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptynp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iipfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_202cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rylkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u70df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tngq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh0up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs4kj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1336k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bol06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbolg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxm6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqulk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n75in")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Practice" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="BoatTempalate" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_egmdp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate"]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.587904
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(23.85, 0)
+rotation = 6.28319
+scale = Vector2(0.99, 0.99)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.965276
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(48.52, 0)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.671118
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(71.93, 0)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.791692
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(59.93, 3)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.791692
+flip_v = true
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(36.83, 2.13)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.791692
+flip_v = true
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(85.21, 2.21)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.791692
+flip_v = true
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
+position = Vector2(12.88, 2)
+sprite_frames = SubResource("SpriteFrames_ptynp")
+animation = &"new_animation"
+frame = 5
+frame_progress = 0.791692
+flip_v = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
