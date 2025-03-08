@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw40gf5f11wo0"]
+
+[ext_resource type="Script" uid="uid://86xws7i82rm7" path="res://rower_card.gd" id="1_lg53v"]
+
+[node name="Rower_Card" type="Node2D"]
+script = ExtResource("1_lg53v")
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="ItemList"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Strength" type="Label" parent="ItemList"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Endurance" type="Label" parent="ItemList"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Tech" type="Label" parent="ItemList"]
+offset_right = 40.0
+offset_bottom = 23.0
