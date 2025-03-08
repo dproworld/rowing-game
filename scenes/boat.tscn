@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://clnr6xyu0eygf"]
+
+[ext_resource type="Texture2D" uid="uid://w244wmalv4y2" path="res://assets/sprites/ship13.png" id="1_0063d"]
+[ext_resource type="Script" uid="uid://bdh1m2ci4xub5" path="res://scenes/boat.gd" id="1_qyrje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrje"]
+size = Vector2(62, 30)
+
+[node name="boat" type="CharacterBody2D"]
+script = ExtResource("1_qyrje")
+
+[node name="Ship13" type="Sprite2D" parent="."]
+texture = ExtResource("1_0063d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qyrje")
