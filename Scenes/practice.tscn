@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dtedo0aqmrumr"]
 
-[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://boatTempalate.png" id="1_egmdp"]
-[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://saveboat.png" id="2_16peu"]
+[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://Assets/boatTempalate.png" id="1_egmdp"]
+[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://Assets/saveboat.png" id="2_16peu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
 atlas = ExtResource("2_16peu")
