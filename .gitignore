@@ -3,6 +3,7 @@
 /android/
 .import/
 .export/
+project.godot
 *.godot
 *.cfg
 *.log
