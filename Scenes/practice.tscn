@@ -1,58 +1,58 @@
 [gd_scene load_steps=17 format=3 uid="uid://dtedo0aqmrumr"]
 
-[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://Assets/boatTempalate.png" id="1_egmdp"]
-[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://Assets/saveboat.png" id="2_16peu"]
+[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://Assets/boatTempalate.png" id="1_23eyu"]
+[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://Assets/saveboat.png" id="2_ygl2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_202cy"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rylkh"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u70df"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tngq3"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh0up"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hs4kj"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1336k"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(384, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bol06"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbolg"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxm6e"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqulk"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(384, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n75in"]
-atlas = ExtResource("2_16peu")
+atlas = ExtResource("2_ygl2u")
 region = Rect2(0, 384, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ptynp"]
@@ -108,7 +108,7 @@ animations = [{
 
 [node name="BoatTempalate" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
-texture = ExtResource("1_egmdp")
+texture = ExtResource("1_23eyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate"]
 position = Vector2(-1, 0)

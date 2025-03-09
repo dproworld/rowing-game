@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w244wmalv4y2"
-path="res://.godot/imported/ship13.png-359f1b8282c3569a1d5b31afce423778.ctex"
+uid="uid://d4nd1xo1q2wln"
+path="res://.godot/imported/sprite_09.png-d280719d1d90584c3955322c7f0bb5cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/ship13.png"
-dest_files=["res://.godot/imported/ship13.png-359f1b8282c3569a1d5b31afce423778.ctex"]
+source_file="res://Scenes/New Piskel (2)/sprite_09.png"
+dest_files=["res://.godot/imported/sprite_09.png-d280719d1d90584c3955322c7f0bb5cb.ctex"]
 
 [params]
 
