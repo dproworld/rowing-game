@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw40gf5f11wo0"]
+[gd_scene load_steps=4 format=3 uid="uid://bw40gf5f11wo0"]
 
 [ext_resource type="Script" uid="uid://c4ayd21le6ejm" path="res://Scripts/rower_card.gd" id="1_7vp81"]
 [ext_resource type="Texture2D" uid="uid://luna4ndilmfy" path="res://Assets/New Piskel.png" id="2_nvd55"]
+[ext_resource type="FontFile" uid="uid://d115d5o8vqnka" path="res://Assets/minecraftfont/Minecraft.ttf" id="3_bhhh5"]
 
 [node name="Rower_Card" type="Control"]
 layout_mode = 3
@@ -29,6 +30,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="MarginContainer"]
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Button"
 metadata/_edit_use_anchors_ = true
@@ -56,16 +58,16 @@ texture = ExtResource("2_nvd55")
 [node name="Name" type="Label" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.596
-anchor_top = 0.606
-anchor_right = 0.596
-anchor_bottom = 0.606
-offset_left = -33.944
-offset_top = 22.032
-offset_right = 13.056
-offset_bottom = 45.032
+anchor_left = 2.015
+anchor_top = 0.768
+anchor_right = 2.015
+anchor_bottom = 0.768
+offset_left = -195.71
+offset_right = -148.71
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_bhhh5")
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1

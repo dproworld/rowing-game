@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dugn2eec843tb"]
+[gd_scene load_steps=14 format=3 uid="uid://dugn2eec843tb"]
 
 [ext_resource type="Script" uid="uid://caojmt8oi51iu" path="res://Scripts/team.gd" id="1_lughb"]
 [ext_resource type="Texture2D" uid="uid://cbyw72w2r3er3" path="res://Assets/pfp.png" id="2_ck41f"]
 [ext_resource type="Texture2D" uid="uid://brfrdqsc7qjst" path="res://Assets/boat_croppes.png" id="2_lughb"]
+[ext_resource type="FontFile" uid="uid://d115d5o8vqnka" path="res://Assets/minecraftfont/Minecraft.ttf" id="2_vyr1m"]
 [ext_resource type="Texture2D" uid="uid://d07fwaxn7jlrl" path="res://Assets/upgrade.png" id="3_0ib3d"]
 [ext_resource type="PackedScene" uid="uid://doom7alq34twn" path="res://Scenes/circle.tscn" id="4_ck41f"]
+[ext_resource type="Texture2D" uid="uid://c1es2asnhwkpq" path="res://Assets/Water.jpg" id="4_uuywt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv6eg"]
 
@@ -49,6 +51,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
@@ -73,6 +83,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Back"
 
 [node name="Trash" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/HSplitContainer"]
@@ -121,6 +132,7 @@ offset_right = 23.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Name"
 
 [node name="Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -136,6 +148,7 @@ offset_right = 38.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Strength: "
 
 [node name="Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -151,6 +164,7 @@ offset_right = 48.0
 offset_bottom = 11.322
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Endurance: "
 
 [node name="Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -162,6 +176,7 @@ anchor_right = 0.4
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Tech: "
 
 [node name="SUp" type="Sprite2D" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -251,40 +266,74 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.78
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_uuywt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="Ave_Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Boat" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
+text = "Boat Stats"
+horizontal_alignment = 1
+
+[node name="Ave_Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Strength:  -1"
 horizontal_alignment = 1
 
-[node name="Ave_Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Ave_Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Endurance:  -1"
 horizontal_alignment = 1
 
-[node name="Ave_Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Ave_Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Tech:  -1"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.01
@@ -293,42 +342,44 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 size_flags_stretch_ratio = 3.37
 texture = ExtResource("2_lughb")
 
-[node name="Circle" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(756, 137)
+[node name="Circle" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(734.58, 141.634)
 num = 1
 
-[node name="Circle2" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(665, 137)
+[node name="Circle2" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(652, 140.286)
 num = 2
 
-[node name="Circle3" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(589, 137)
+[node name="Circle3" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(575, 139.714)
 num = 3
 
-[node name="Circle4" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(503, 137)
+[node name="Circle4" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(493, 139.143)
 num = 4
 
-[node name="Circle5" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(425, 137)
+[node name="Circle5" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(412, 139.286)
 num = 5
 
-[node name="Circle6" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(339, 137)
+[node name="Circle6" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(332, 139.714)
 num = 6
 
-[node name="Circle7" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(258, 137)
+[node name="Circle7" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(249, 138.714)
 num = 7
 
-[node name="Circle8" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
-position = Vector2(170, 137)
+[node name="Circle8" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(169, 139.714)
 num = 8
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/HSplitContainer/Back" to="." method="_on_back_pressed"]
