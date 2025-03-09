@@ -27,21 +27,11 @@ const CRAB_STEERING_EFFECT = 1.2    # How much a crab affects steering
 @export_range(0, 12) var drive_phase_start: int = 2  # Frame where drive phase starts
 @export_range(0, 12) var drive_phase_end: int = 6    # Frame where drive phase ends
 
-# Trash collection properties
-const COLLECTION_RADIUS = 25.0  # How close the boat needs to be to collect trash
-const COLLECTION_COOLDOWN = 0.2  # Seconds between collection checks
-
 # Set synchronized rowing to true by default as requested
 var synchronized_rowing: bool = true
 var max_offset: float = 0.5
 var current_animation_frame: int = 0  # Track current animation frame for synchronized movement
 var team_fatigue: float = 0.0         # Average fatigue level for the whole team
-
-# Trash collection state
-var trash_count: int = 0
-var collection_timer: float = 0.0
-var trash_group: String = "trash"  # Must match the river generator's trash_collision_group
-signal trash_collected(count)
 
 # Rower setup - even positions are port (left), odd are starboard (right)
 var rowers = {
@@ -150,10 +140,6 @@ var crab_impulse_decay: float = 0.8     # How quickly crab steering effect decay
 const CRAB_STEERING_IMPULSE_STRENGTH = 0.3  # Base steering impulse multiplier from a crab
 const CRAB_STEERING_MIN = 0.1  # Minimum steering effect even at very low speeds
 
-# Add collision shape for trash detection if needed
-@onready var collection_area = $TrashCollector  # This will be added in the scene setup
-
-
 func _ready():
 	# Find the AnimatedSprite2D nodes using more reliable methods
 	var sprite_nodes = []
@@ -202,34 +188,6 @@ func _ready():
 
 	# Start rowing animations
 	start_rowing()
-
-	# Remove any existing TrashCollector to avoid duplicates
-	if has_node("TrashCollector"):
-		get_node("TrashCollector").queue_free()
-	
-	# Create new trash collector area
-	var area = Area2D.new()
-	area.name = "TrashCollector"
-	# Set collision mask to detect trash layer (layer 2)
-	area.collision_mask = 2  # Layer 2 for trash
-	area.collision_layer = 0  # Don't need to be detected by others
-	
-	# Create and configure collision shape
-	var shape = CollisionShape2D.new()
-	var circle = CircleShape2D.new()
-	circle.radius = COLLECTION_RADIUS
-	shape.shape = circle
-	area.add_child(shape)
-	add_child(area)
-	
-	# Connect area signal using Godot 4 syntax
-	area.area_entered.connect(_on_trash_collector_area_entered)
-	print("Trash collector created and signal connected")
-
-	# Add boat to groups for identification
-	add_to_group("boat")
-
-
 
 func _physics_process(delta: float) -> void:
 	# Handle crab recovery state
@@ -291,11 +249,6 @@ func _physics_process(delta: float) -> void:
 
 	# Set velocity along the boat's forward direction using momentum
 	velocity = Vector2(boat_momentum, 0).rotated(rotation)
-
-	# Update trash collection cooldown
-	if collection_timer > 0:
-		collection_timer -= delta
-
 	move_and_slide()
 
 # Track animation frame changes to synchronize boat speed with rowing
@@ -397,7 +350,6 @@ func _on_crab_timeout(seat_pos: int) -> void:
 		rowers[seat_pos].crabbed = false
 		update_animation_speeds()
 		# Note: We don't restart the boat here anymore, as that's handled by the crab_recovery_timer
-
 
 # Called when a rower catches a crab to stop the boat
 func stop_boat_for_crab(crab_side: String = "") -> void:
@@ -501,11 +453,9 @@ func get_stroke_phase_multiplier() -> float:
 
 func handle_steering(delta: float) -> void:
 	# Basic steering input
+
 	var steering_input = 0.0
-	if Input.is_action_pressed("ui_up"):
-		steering_input = -1.0  # Counter-clockwise
-	elif Input.is_action_pressed("ui_down"):
-		steering_input = 1.0   # Clockwise
+
 
 	# Apply side imbalance to steering (if one side is less efficient due to crabs)
 	var side_imbalance = (port_side_efficiency - starboard_side_efficiency) * CRAB_STEERING_EFFECT
@@ -581,70 +531,3 @@ func update_animation_speeds():
 			speed = crabbed_animation_speed
 
 		rower.sprite.speed_scale = speed / 10.0
-
-# Add these new functions for trash collection:
-
-# Called when trash collector area overlaps with trash
-func _on_trash_collector_area_entered(area: Area2D):
-	print("test")
-	if area.is_in_group(trash_group) and collection_timer <= 0:
-		collect_trash(area)
-		collection_timer = COLLECTION_COOLDOWN
-
-
-# Handle trash collection
-func collect_trash(trash_node):
-	# Ensure we don't double-collect
-	if trash_node.has_meta("collected") and trash_node.get_meta("collected"):
-		return
-
-	# Mark as collected to prevent multiple collections
-	trash_node.set_meta("collected", true)
-
-	# Increase the counter
-	trash_count += 1
-
-	# Emit signal with updated count
-	emit_signal("trash_collected", trash_count)
-
-	# Optional feedback
-	print("Boat collected trash! Total: ", trash_count)
-
-	# Get river generator reference if needed
-	var river_generators = get_tree().get_nodes_in_group("river_generator")
-	if river_generators.size() > 0:
-		river_generators[0].remove_trash(trash_node)
-	else:
-		# If river generator not found, remove the trash directly
-		trash_node.queue_free()
-
-# Public method to get current trash count
-func get_trash_count() -> int:
-	return trash_count
-	
-# Clean-slate approach to trash collection
-func setup_trash_collection():
-	# Remove any existing collector
-	if has_node("TrashCollector"):
-		get_node("TrashCollector").queue_free()
-	
-	# Create a new trash collector area
-	var area = Area2D.new()
-	area.name = "TrashCollector"
-	area.collision_mask = 2  # Layer 2 for trash
-	area.collision_layer = 0  # Don't be detected by others
-	
-	# Add a collision shape
-	var shape = CollisionShape2D.new()
-	var circle = CircleShape2D.new()
-	circle.radius = COLLECTION_RADIUS
-	shape.shape = circle
-	area.add_child(shape)
-	add_child(area)
-	
-	# Connect signal using Godot 4 syntax
-	area.area_entered.connect(_on_trash_collector_area_entered)
-	print("Fresh trash collector created and connected")
-
-# Replace your _ready function's trash collector setup with:
-# setup_trash_collection()

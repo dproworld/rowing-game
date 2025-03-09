@@ -188,15 +188,15 @@ func generate_separate_lists():
 	var strengths = []
 	var endurances = []
 	var techs = []
-	
+
 	for rower_name in data_set:
 		names.append(rower_name)
 		strengths.append(data_set[rower_name]["strength"])
 		endurances.append(data_set[rower_name]["endurance"])
 		techs.append(data_set[rower_name]["tech"])
-	
+
 	return [names, strengths, endurances, techs]
 
 var boat = [null, null, null, null, null, null, null, null]
 
-var trash = 0
+var trash = 20 # Changed initial value to 20 for testing

@@ -1,9 +1,9 @@
 [gd_scene load_steps=135 format=4 uid="uid://h444v5urpejv"]
 
 [ext_resource type="TileSet" uid="uid://cc8rl03vvkn6f" path="res://Assets/river.tres" id="1_aunb7"]
-[ext_resource type="Script" uid="uid://dt14y55cydnfp" path="res://Scenes/race.gd" id="1_l2tii"]
+[ext_resource type="Script" path="res://Scenes/race.gd" id="1_l2tii"]
 [ext_resource type="PackedScene" uid="uid://cwun5il01ifxw" path="res://Scenes/new_boat.tscn" id="2_fqxj3"]
-[ext_resource type="Script" path="res://Scripts/enemyboat.gd" id="3_gulhy"]
+[ext_resource type="Script" uid="uid://y2gkfu2xtytc" path="res://Scripts/enemyboat.gd" id="3_gulhy"]
 [ext_resource type="Texture2D" uid="uid://dumhng3j6tw7n" path="res://Assets/otherTeam-1.png.png" id="3_p32jy"]
 [ext_resource type="Texture2D" uid="uid://bpxoykjx52ctx" path="res://Assets/otherTeamPlayer.png" id="4_ag18q"]
 [ext_resource type="Texture2D" uid="uid://ba6k8gsl2paee" path="res://Assets/otherTeamPlayerIdle.png" id="4_d327a"]
@@ -977,7 +977,6 @@ zoom = Vector2(2, 2)
 [node name="Button" type="Button" parent="new-boat/Camera2D/CanvasLayer"]
 z_index = 100
 custom_minimum_size = Vector2(40, 15)
-anchors_preset = -1
 offset_left = 9.0
 offset_top = 7.0
 offset_right = 59.0

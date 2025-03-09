@@ -38,7 +38,6 @@ zoom = Vector2(2, 2)
 [node name="Button" type="Button" parent="new-boat/Camera2D/CanvasLayer"]
 z_index = 100
 custom_minimum_size = Vector2(40, 15)
-anchors_preset = -1
 offset_left = 9.0
 offset_top = 7.0
 offset_right = 59.0
@@ -59,6 +58,10 @@ offset_bottom = 25.0
 theme_override_fonts/font = ExtResource("4_1hhy3")
 text = "Trash:"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="new-boat/Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="TrashCollector" type="Area2D" parent="new-boat"]
 
