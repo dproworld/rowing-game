@@ -1,64 +1,62 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwun5il01ifxw"]
 
-[gd_scene load_steps=19 format=3 uid="uid://dtedo0aqmrumr"]
-
-[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://Assets/boatTempalate.png" id="1_23eyu"]
-[ext_resource type="Script" uid="uid://cgdvxmt1e1h6b" path="res://Prodecudal.gd" id="1_oxn0w"]
-[ext_resource type="TileSet" uid="uid://clyg2pk5orfuk" path="res://Assets/river.tres" id="2_1hhy3"]
-[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://Assets/saveboat.png" id="2_ygl2u"]
+[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://assets/boatTempalate.png" id="1_i6ajv"]
+[ext_resource type="Script" uid="uid://bgy03inhj51cw" path="res://scenes/new_boat.gd" id="1_tv3nm"]
+[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://assets/saveboat.png" id="3_o6vuj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_202cy"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rylkh"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u70df"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tngq3"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh0up"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hs4kj"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1336k"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(384, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bol06"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbolg"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxm6e"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqulk"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(384, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n75in"]
-atlas = ExtResource("2_ygl2u")
+atlas = ExtResource("3_o6vuj")
 region = Rect2(0, 384, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ptynp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6bg6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -105,74 +103,62 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Practice" type="Node2D" node_paths=PackedStringArray("tilemap")]
-script = ExtResource("1_oxn0w")
-tilemap = NodePath("TileMap")
-map_width = 500
-map_height = 100
-seed_value = 1
-river_width_min = 7
-river_width_max = 15
-river_curve_intensity = 0.3
-tile_source_id = 1
-bank_tile = Vector2i(1, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gnhj"]
+size = Vector2(121, 21)
 
-[node name="TileMap" type="TileMap" parent="."]
-z_index = -1
-tile_set = ExtResource("2_1hhy3")
-collision_animatable = true
-format = 2
+[node name="new-boat" type="CharacterBody2D"]
+script = ExtResource("1_tv3nm")
 
 [node name="BoatTempalate" type="Sprite2D" parent="."]
-position = Vector2(1100, 1700)
-texture = ExtResource("1_23eyu")
+position = Vector2(1, 0)
+texture = ExtResource("1_i6ajv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate"]
 position = Vector2(-1, 0)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(23.85, 0)
 rotation = 6.28319
 scale = Vector2(0.99, 0.99)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(48.52, 0)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(71.93, 0)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(59.93, 3)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 flip_v = true
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(36.83, 2.13)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 flip_v = true
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(85.21, 2.21)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 flip_v = true
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="BoatTempalate/AnimatedSprite2D"]
 position = Vector2(12.88, 2)
-sprite_frames = SubResource("SpriteFrames_ptynp")
+sprite_frames = SubResource("SpriteFrames_v6bg6")
 animation = &"row"
 flip_v = true
 
-[node name="Camera2D" type="Camera2D" parent="BoatTempalate"]
-position = Vector2(-1, 0)
-zoom = Vector2(2, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 1.5)
+shape = SubResource("RectangleShape2D_2gnhj")

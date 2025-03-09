@@ -15,6 +15,14 @@ const CRAB_DURATION = 2.0           # How long a crab affects performance (secon
 const CRAB_SPEED_PENALTY = 0.3      # Speed multiplier reduction when catching a crab
 const CRAB_STEERING_EFFECT = 1.2    # How much a crab affects steering
 
+# Animation parameters
+@export var normal_row_speed: float = 10.0
+@export var power_stroke_row_speed: float = 15.0
+@export var tired_row_speed: float = 7.0
+@export var crabbed_animation_speed: float = 5.0
+@export var synchronized_rowing: bool = false
+@export var max_offset: float = 0.5
+
 # Rower setup - even positions are port (left), odd are starboard (right)
 var rowers = {
 	# Port side (left)
@@ -25,7 +33,8 @@ var rowers = {
 		"technique": 0.7,
 		"fatigue": 0,    # Current fatigue level
 		"crabbed": false, # Whether this rower currently has a crab
-		"side": "port"
+		"side": "port",
+		"sprite": null   # Will store reference to AnimatedSprite2D
 	},
 	2: {
 		"name": "Morgan 6",
@@ -34,7 +43,8 @@ var rowers = {
 		"technique": 0.85,
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "port"
+		"side": "port",
+		"sprite": null
 	},
 	4: {
 		"name": "Jamie 4",
@@ -43,7 +53,8 @@ var rowers = {
 		"technique": 0.75,
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "port"
+		"side": "port",
+		"sprite": null
 	},
 	6: {
 		"name": "Taylor 2",
@@ -52,7 +63,8 @@ var rowers = {
 		"technique": 0.9,  # Good technique
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "port"
+		"side": "port",
+		"sprite": null
 	},
 	# Starboard side (right)
 	1: {
@@ -62,7 +74,8 @@ var rowers = {
 		"technique": 0.8,
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "starboard"
+		"side": "starboard",
+		"sprite": null
 	},
 	3: {
 		"name": "Casey 5",
@@ -71,7 +84,8 @@ var rowers = {
 		"technique": 0.85,
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "starboard"
+		"side": "starboard",
+		"sprite": null
 	},
 	5: {
 		"name": "Riley 3",
@@ -80,16 +94,18 @@ var rowers = {
 		"technique": 0.95,  # Best technique
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "starboard"
+		"side": "starboard",
+		"sprite": null
 	},
 	7: {
-		"name": "Avery",
+		"name": "Avery 1",
 		"strength": 75,
 		"endurance": 75,  # Balanced
 		"technique": 0.65,  # Worst technique
 		"fatigue": 0,
 		"crabbed": false,
-		"side": "starboard"
+		"side": "starboard",
+		"sprite": null
 	}
 }
 
@@ -101,17 +117,44 @@ var crab_check_timer = 0.0
 var port_side_efficiency = 1.0
 var starboard_side_efficiency = 1.0
 
+func _ready():
+	# Connect sprite references with rower data
+	var sprite_container = $AnimatedSprite2D
+	var sprite_nodes = []
+	
+	# Get all rower sprite nodes
+	if sprite_container is AnimatedSprite2D:
+		sprite_nodes.append(sprite_container)
+	
+	for child in sprite_container.get_children():
+		if child is AnimatedSprite2D:
+			sprite_nodes.append(child)
+	
+	# Assign sprite references to rower data
+	# This assumes the order of sprite nodes matches the rower positions
+	# Adjust the logic if your node order is different
+	var i = 0
+	for position in rowers:
+		if i < sprite_nodes.size():
+			rowers[position].sprite = sprite_nodes[i]
+			i += 1
+	
+	# Start rowing animations
+	start_rowing()
+
 func _physics_process(delta: float) -> void:
 	# Handle power stroke input
 	if Input.is_action_just_pressed("power_stroke"):  # You'll need to define this action
 		power_stroke_active = true
 		power_stroke_timer = POWER_STROKE_DURATION
+		update_animation_speeds()
 	
 	# Update power stroke timer
 	if power_stroke_active:
 		power_stroke_timer -= delta
 		if power_stroke_timer <= 0:
 			power_stroke_active = false
+			update_animation_speeds()
 	
 	# Update rower fatigue and check for crabs
 	update_rower_states(delta)
@@ -136,8 +179,12 @@ func update_rower_states(delta: float) -> void:
 	starboard_side_efficiency = 1.0
 	
 	# Update each rower's state
+	var animation_update_needed = false
+	
 	for position in rowers:
 		var rower = rowers[position]
+		var old_fatigue = rower.fatigue
+		var old_crabbed = rower.crabbed
 		
 		# Update fatigue based on activity
 		if power_stroke_active:
@@ -155,8 +202,18 @@ func update_rower_states(delta: float) -> void:
 				port_side_efficiency -= CRAB_SPEED_PENALTY
 			else:
 				starboard_side_efficiency -= CRAB_SPEED_PENALTY
+		
+		# Check if animation update needed
+		if (abs(old_fatigue - rower.fatigue) > 10.0) or (old_crabbed != rower.crabbed):
+			animation_update_needed = true
+	
+	# Update animations if needed
+	if animation_update_needed:
+		update_animation_speeds()
 
 func check_for_crabs() -> void:
+	var animation_update_needed = false
+	
 	for position in rowers:
 		var rower = rowers[position]
 		
@@ -170,6 +227,7 @@ func check_for_crabs() -> void:
 		# Roll for crab
 		if randf() < crab_chance:
 			rower.crabbed = true
+			animation_update_needed = true
 			
 			# Create a timer to clear the crab after duration
 			var timer = get_tree().create_timer(CRAB_DURATION)
@@ -177,10 +235,14 @@ func check_for_crabs() -> void:
 			
 			# Visual/audio feedback could be added here
 			print(rower.name + " caught a crab!")
+	
+	if animation_update_needed:
+		update_animation_speeds()
 
 func _on_crab_timeout(position: int) -> void:
 	if position in rowers:
 		rowers[position].crabbed = false
+		update_animation_speeds()
 
 func calculate_boat_speed() -> float:
 	var port_contribution = 0.0
@@ -232,3 +294,55 @@ func handle_steering(delta: float) -> void:
 	
 	# Apply turn
 	rotation += current_turn_rate * delta
+
+# Animation functions integrated from the original animation script
+
+func start_rowing():
+	if synchronized_rowing:
+		# Start all rowers in sync
+		for position in rowers:
+			var rower = rowers[position]
+			if rower.sprite:
+				rower.sprite.play("row")
+	else:
+		# Start with random offsets for more natural look
+		for position in rowers:
+			var rower = rowers[position]
+			if rower.sprite:
+				var offset = randf() * max_offset
+				await get_tree().create_timer(offset).timeout
+				rower.sprite.play("row")
+	
+	# Initialize animation speeds based on initial state
+	update_animation_speeds()
+
+func stop_rowing():
+	for position in rowers:
+		var rower = rowers[position]
+		if rower.sprite:
+			rower.sprite.stop()
+
+func update_animation_speeds():
+	for position in rowers:
+		var rower = rowers[position]
+		if not rower.sprite:
+			continue
+		
+		var speed = normal_row_speed
+		
+		# Adjust speed based on rower state
+		if rower.crabbed:
+			# Crabbed animation is very slow and jerky
+			speed = crabbed_animation_speed
+		elif power_stroke_active:
+			# Power stroke is faster than normal rowing
+			speed = power_stroke_row_speed - (rower.fatigue / 100.0 * 5.0)  # Fatigue reduces speed
+		else:
+			# Normal rowing affected by fatigue
+			speed = normal_row_speed - (rower.fatigue / 100.0 * 3.0)
+			
+			# Ensure animation doesn't get too slow
+			if speed < tired_row_speed:
+				speed = tired_row_speed
+		
+		rower.sprite.speed_scale = speed / 10.0
