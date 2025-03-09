@@ -48,7 +48,7 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -59,7 +59,7 @@ offset_top = -0.280014
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 37
-text = "RetroRower"
+text = "Retro Rower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
