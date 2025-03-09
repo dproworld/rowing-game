@@ -21,9 +21,9 @@ func _ready():
 	s_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Strength
 	e_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Endurance
 	t_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Tech
-	s_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Strength
-	e_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Endurance
-	t_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Tech
+	s_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Strength
+	e_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Endurance
+	t_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Tech
 	$CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/MarginContainer/CardsContainer.layout_mode = 3  # or try 3
 	for rower_name in global.data_set:
 		var card = preload("res://Scenes/rower_card.tscn").instantiate()
