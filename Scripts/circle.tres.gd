@@ -24,6 +24,10 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	athlete = text_label.text
 	if(athlete != "Name"):
+		for i in range(len(boat)):
+			if(athlete == boat[i]):
+				print("Athlete already in boat")
+				return
 		boat[num -1] = athlete
 		calc_ave_stat()
 	else:
@@ -43,4 +47,4 @@ func calc_ave_stat():
 	s_label.text = "Ave Strength: " + str(round(s/c * 10) / 10.0)
 	e_label.text = "Ave Endurance: " + str(round(e/c * 10) / 10.0)
 	t_label.text = "Ave Tech: " + str(round(t/c * 100) / 100.0)
-	print(s, e, t)
+	print(s, " ", e, " ", t)
