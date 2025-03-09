@@ -87,9 +87,11 @@ theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Back"
 
 [node name="Trash" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/HSplitContainer"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.51
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Trash: "
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer"]

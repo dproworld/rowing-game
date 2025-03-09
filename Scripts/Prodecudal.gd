@@ -321,6 +321,12 @@ func remove_trash(trash_node):
 	
 	# Increment collection counter
 	trash_collected_count += 1
+	global.trash += 1
+	var t_label = $"new-boat"/Camera2D/CanvasLayer/Trash
+	t_label.text = "Trash: " + str(global.trash)
 	
 	# Queue for deletion
 	trash_node.queue_free()
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

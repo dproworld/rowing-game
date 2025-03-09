@@ -21,9 +21,9 @@ func _ready():
 	s_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Strength
 	e_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Endurance
 	t_lab = $CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Tech
-	s_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Strength
-	e_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Endurance
-	t_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Tech
+	s_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Strength
+	e_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Endurance
+	t_label = $CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Tech
 	$CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/MarginContainer/CardsContainer.layout_mode = 3  # or try 3
 	for rower_name in global.data_set:
 		var card = preload("res://Scenes/rower_card.tscn").instantiate()
@@ -80,13 +80,12 @@ func calc_ave_stat():
 	var s = 0
 	var e = 0
 	var t = 0
-	var c = 0.0
+	var c = 8.0
 	for i in range(len(boat)):
 		if(boat[i] != null):
 			s += data[boat[i]]["strength"]
 			e += data[boat[i]]["endurance"]
 			t += data[boat[i]]["tech"]
-			c = c + 1
 	if(c!=0):
 		s_label.text = "Ave Strength: " + str(round(s/c * 10) / 10.0)
 		e_label.text = "Ave Endurance: " + str(round(e/c * 10) / 10.0)
