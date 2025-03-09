@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cc8rl03vvkn6f"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cc8rl03vvkn6f"]
 
 [ext_resource type="Texture2D" uid="uid://luna4ndilmfy" path="res://Assets/New Piskel.png" id="1_00d0x"]
 
@@ -22,3 +22,4 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ru8cq")
+sources/0 = SubResource("TileSetAtlasSource_ma3e3")
