@@ -198,3 +198,5 @@ func generate_separate_lists():
 	return [names, strengths, endurances, techs]
 
 var boat = [null, null, null, null, null, null, null, null]
+
+var trash = 0
