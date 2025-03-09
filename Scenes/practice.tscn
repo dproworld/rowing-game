@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtedo0aqmrumr"]
+[gd_scene load_steps=19 format=3 uid="uid://dtedo0aqmrumr"]
 
 [ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://Assets/boatTempalate.png" id="1_23eyu"]
+[ext_resource type="Script" uid="uid://cgdvxmt1e1h6b" path="res://Prodecudal.gd" id="1_oxn0w"]
+[ext_resource type="TileSet" uid="uid://clyg2pk5orfuk" path="res://Assets/river.tres" id="2_1hhy3"]
 [ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://Assets/saveboat.png" id="2_ygl2u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
@@ -102,12 +104,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Practice" type="Node2D"]
+[node name="Practice" type="Node2D" node_paths=PackedStringArray("tilemap")]
+script = ExtResource("1_oxn0w")
+tilemap = NodePath("TileMap")
+map_width = 500
+map_height = 100
+seed_value = 1
+river_width_min = 7
+river_width_max = 15
+river_curve_intensity = 0.3
+tile_source_id = 1
+bank_tile = Vector2i(1, 3)
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource("2_1hhy3")
+collision_animatable = true
+format = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="BoatTempalate" type="Sprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1100, 1700)
 texture = ExtResource("1_23eyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoatTempalate"]
@@ -172,5 +190,6 @@ frame = 5
 frame_progress = 0.791692
 flip_v = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="BoatTempalate"]
+position = Vector2(-1, 0)
 zoom = Vector2(2, 2)
