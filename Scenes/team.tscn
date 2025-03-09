@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dugn2eec843tb"]
+[gd_scene load_steps=14 format=3 uid="uid://dugn2eec843tb"]
 
 [ext_resource type="Script" uid="uid://caojmt8oi51iu" path="res://Scripts/team.gd" id="1_lughb"]
 [ext_resource type="Texture2D" uid="uid://cbyw72w2r3er3" path="res://Assets/pfp.png" id="2_ck41f"]
 [ext_resource type="Texture2D" uid="uid://brfrdqsc7qjst" path="res://Assets/boat_croppes.png" id="2_lughb"]
+[ext_resource type="FontFile" uid="uid://d115d5o8vqnka" path="res://Assets/minecraftfont/Minecraft.ttf" id="2_vyr1m"]
 [ext_resource type="Texture2D" uid="uid://d07fwaxn7jlrl" path="res://Assets/upgrade.png" id="3_0ib3d"]
 [ext_resource type="PackedScene" uid="uid://doom7alq34twn" path="res://Scenes/circle.tscn" id="4_ck41f"]
 [ext_resource type="Texture2D" uid="uid://c1es2asnhwkpq" path="res://Assets/Water.jpg" id="4_uuywt"]
@@ -82,6 +83,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Back"
 
 [node name="Trash" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/HSplitContainer"]
@@ -130,6 +132,7 @@ offset_right = 23.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Name"
 
 [node name="Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -145,6 +148,7 @@ offset_right = 38.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Strength: "
 
 [node name="Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -160,6 +164,7 @@ offset_right = 48.0
 offset_bottom = 11.322
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Endurance: "
 
 [node name="Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -171,6 +176,7 @@ anchor_right = 0.4
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Tech: "
 
 [node name="SUp" type="Sprite2D" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
@@ -298,6 +304,7 @@ theme_override_constants/separation = 15
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Boat Stats"
 horizontal_alignment = 1
 
@@ -305,6 +312,7 @@ horizontal_alignment = 1
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Strength:  -1"
 horizontal_alignment = 1
 
@@ -313,6 +321,7 @@ modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Endurance:  -1"
 horizontal_alignment = 1
 
@@ -320,6 +329,7 @@ horizontal_alignment = 1
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_vyr1m")
 text = "Ave Tech:  -1"
 horizontal_alignment = 1
 

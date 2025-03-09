@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqekoayu7gxoe"]
+[gd_scene load_steps=4 format=3 uid="uid://dqekoayu7gxoe"]
 
 [ext_resource type="Script" uid="uid://c08hx7vw5s2bi" path="res://Scripts/menu.gd" id="1_lti8b"]
 [ext_resource type="Texture2D" uid="uid://duxlvdpxawy7g" path="res://Assets/cover.webp" id="2_xhh6f"]
+[ext_resource type="FontFile" uid="uid://d115d5o8vqnka" path="res://Assets/minecraftfont/Minecraft.ttf" id="3_cayip"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -41,22 +42,27 @@ layout_mode = 2
 
 [node name="Team" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 text = "Team"
 
 [node name="Practice" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 text = "Practice"
 
 [node name="Race" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 text = "Race"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 text = "Quit"
 
 [node name="Panel" type="Panel" parent="."]
@@ -73,22 +79,22 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.000266656
-anchor_top = -0.0203673
-anchor_right = 0.999762
-anchor_bottom = 0.999551
-offset_left = 0.119995
-offset_top = -0.00400066
-offset_right = 0.106934
-offset_bottom = 0.0439987
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -30.0
+offset_right = 189.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_cayip")
 theme_override_font_sizes/font_size = 60
 text = "Retro Rower"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Team" to="." method="_on_team_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Practice" to="." method="_on_practice_pressed"]

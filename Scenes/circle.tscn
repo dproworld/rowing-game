@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doom7alq34twn"]
+[gd_scene load_steps=4 format=3 uid="uid://doom7alq34twn"]
 
 [ext_resource type="Texture2D" uid="uid://djhx5y86bxlhc" path="res://Assets/Circle.png" id="1_cf5ou"]
 [ext_resource type="Script" uid="uid://bwl4oj0f7thq6" path="res://Scripts/circle.tres.gd" id="1_ny5yc"]
+[ext_resource type="FontFile" uid="uid://d115d5o8vqnka" path="res://Assets/minecraftfont/Minecraft.ttf" id="3_whlij"]
 
 [node name="Circle" type="Node2D"]
 script = ExtResource("1_ny5yc")
@@ -41,6 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_whlij")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]
