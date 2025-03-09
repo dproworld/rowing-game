@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd3753uenu8nc"]
 
-[ext_resource type="PackedScene" uid="uid://clnr6xyu0eygf" path="res://scenes/boat.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cwun5il01ifxw" path="res://scenes/new_boat.tscn" id="1_uwrxv"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uwrxv"]
 a = Vector2(-281, 70)
@@ -12,16 +12,17 @@ b = Vector2(210, 688)
 
 [node name="game" type="Node2D"]
 
-[node name="boat" parent="." instance=ExtResource("1_uwrxv")]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-588, 240)
 shape = SubResource("SegmentShape2D_uwrxv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(846, 0)
+position = Vector2(318, -34)
 shape = SubResource("SegmentShape2D_yqjtg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+
+[node name="new-boat" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(-502, -3)

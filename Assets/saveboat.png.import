@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mrsrih4pgtdw"
-path="res://.godot/imported/saveboat.png-0d9cfd42948781dc50e3dc666a5ce3b0.ctex"
+path="res://.godot/imported/saveboat.png-d84c31a22cb2df4ca62df0cf604cea28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/saveboat.png"
-dest_files=["res://.godot/imported/saveboat.png-0d9cfd42948781dc50e3dc666a5ce3b0.ctex"]
+source_file="res://assets/saveboat.png"
+dest_files=["res://.godot/imported/saveboat.png-d84c31a22cb2df4ca62df0cf604cea28.ctex"]
 
 [params]
 
