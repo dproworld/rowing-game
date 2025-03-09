@@ -13,7 +13,7 @@ extends Node
 @export var river_curve_intensity: float = 0.1  # Controls river bending
 
 # Tile atlas coordinates (from TileSet)
-@export var tile_source_id: int = 0
+@export var tile_source_id: int = 4
 @export var ground_tile: Vector2i = Vector2i(0, 0)
 @export var water_tile: Vector2i = Vector2i(1, 0)
 @export var bank_tile: Vector2i = Vector2i(2, 0)
