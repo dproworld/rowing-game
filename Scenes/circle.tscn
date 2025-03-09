@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://doom7alq34twn"]
+
+[ext_resource type="Texture2D" uid="uid://djhx5y86bxlhc" path="res://Assets/Circle.png" id="1_cf5ou"]
+
+[node name="Circle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -3.8147e-06)
+scale = Vector2(0.403333, 0.39)
+texture = ExtResource("1_cf5ou")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -63.0
+offset_right = 26.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 80
+text = "n"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -104.0
+offset_top = -100.0
+offset_right = 104.0
+offset_bottom = 99.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

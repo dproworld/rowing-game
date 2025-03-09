@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw40gf5f11wo0"]
+
+[ext_resource type="Script" uid="uid://c4ayd21le6ejm" path="res://Scripts/rower_card.gd" id="1_7vp81"]
+[ext_resource type="Texture2D" uid="uid://luna4ndilmfy" path="res://Assets/New Piskel.png" id="2_nvd55"]
+
+[node name="Rower_Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vp81")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.107382
+anchor_bottom = 0.225099
+offset_right = 0.29599
+offset_bottom = 0.135986
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Button"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.375
+anchor_right = 0.5
+anchor_bottom = 0.375
+offset_left = -48.768
+offset_top = -41.398
+offset_right = 48.768
+offset_bottom = 41.398
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_nvd55")
+
+[node name="Name" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.606
+anchor_right = 0.596
+anchor_bottom = 0.606
+offset_left = -33.944
+offset_top = 22.032
+offset_right = 13.056
+offset_bottom = 45.032
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
