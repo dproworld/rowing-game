@@ -17,6 +17,7 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyr1m"]
 
 [sub_resource type="Theme" id="Theme_bdi2c"]
+Button/font_sizes/font_size = 30
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_mv6eg")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_ck41f")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_0ib3d")
@@ -125,9 +126,9 @@ text = "Name"
 [node name="Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35
+anchor_left = 0.4
 anchor_top = 0.65
-anchor_right = 0.35
+anchor_right = 0.4
 anchor_bottom = 0.65
 offset_left = -38.0
 offset_top = -11.5
@@ -140,9 +141,9 @@ text = "Strength: "
 [node name="Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35
+anchor_left = 0.4
 anchor_top = 0.726
-anchor_right = 0.35
+anchor_right = 0.4
 anchor_bottom = 0.726
 offset_left = -44.0
 offset_top = -11.678
@@ -155,20 +156,21 @@ text = "Endurance: "
 [node name="Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.35
+anchor_left = 0.4
 anchor_top = 0.8
-anchor_right = 0.35
+anchor_right = 0.4
 anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 text = "Tech: "
 
 [node name="SUp" type="Sprite2D" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
-position = Vector2(168, 184)
+position = Vector2(176, 183)
 scale = Vector2(0.515625, 0.53125)
 texture = ExtResource("3_0ib3d")
 
 [node name="SUp" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/SUp"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 anchors_preset = -1
 anchor_left = -0.0153012
@@ -184,11 +186,12 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="EUp" type="Sprite2D" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
-position = Vector2(168, 208)
+position = Vector2(176, 207)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_0ib3d")
 
 [node name="EUp" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/EUp"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 anchors_preset = 15
 anchor_right = 1.0
@@ -202,11 +205,12 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TUp" type="Sprite2D" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
-position = Vector2(168, 230)
+position = Vector2(176, 229)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_0ib3d")
 
 [node name="TUp" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/TUp"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 anchors_preset = 15
 anchor_right = 1.0

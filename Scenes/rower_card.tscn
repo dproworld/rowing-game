@@ -28,6 +28,7 @@ theme_override_constants/margin_bottom = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Button"
 metadata/_edit_use_anchors_ = true

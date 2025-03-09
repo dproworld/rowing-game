@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="rowing"
-run/main_scene="uid://dugn2eec843tb"
+run/main_scene="uid://dqekoayu7gxoe"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
