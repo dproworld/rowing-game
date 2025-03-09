@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dugn2eec843tb"]
+[gd_scene load_steps=11 format=3 uid="uid://dugn2eec843tb"]
 
 [ext_resource type="Script" uid="uid://caojmt8oi51iu" path="res://Scripts/team.gd" id="1_lughb"]
 [ext_resource type="Texture2D" uid="uid://brfrdqsc7qjst" path="res://Assets/boat_croppes.png" id="2_lughb"]
 [ext_resource type="Texture2D" uid="uid://luna4ndilmfy" path="res://Assets/New Piskel.png" id="2_mv6eg"]
+[ext_resource type="PackedScene" uid="uid://doom7alq34twn" path="res://Scenes/circle.tscn" id="4_ck41f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv6eg"]
 
@@ -150,20 +151,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Tech: "
 
-[node name="Select" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.97
-anchor_right = 0.5
-anchor_bottom = 0.975
-offset_left = -0.0360031
-offset_top = 0.145996
-offset_right = 1.10599
-grow_horizontal = 2
-grow_vertical = 0
-text = "Select"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -206,20 +193,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="Ave Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Ave_Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Ave Strength:  -1"
 horizontal_alignment = 1
 
-[node name="Ave Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Ave_Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
 text = "Ave Endurance:  -1"
 horizontal_alignment = 1
 
-[node name="Ave Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+[node name="Ave_Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Ave Tech:  -1"
@@ -239,5 +226,37 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.37
 texture = ExtResource("2_lughb")
+
+[node name="Circle" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(756, 137)
+num = 1
+
+[node name="Circle2" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(665, 137)
+num = 2
+
+[node name="Circle3" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(589, 137)
+num = 3
+
+[node name="Circle4" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(503, 137)
+num = 4
+
+[node name="Circle5" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(425, 137)
+num = 5
+
+[node name="Circle6" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(339, 137)
+num = 6
+
+[node name="Circle7" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(258, 137)
+num = 7
+
+[node name="Circle8" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer" instance=ExtResource("4_ck41f")]
+position = Vector2(170, 137)
+num = 8
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/Back" to="." method="_on_back_pressed"]

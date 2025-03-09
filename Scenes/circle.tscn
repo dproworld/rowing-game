@@ -1,26 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://doom7alq34twn"]
+[gd_scene load_steps=3 format=3 uid="uid://doom7alq34twn"]
 
 [ext_resource type="Texture2D" uid="uid://djhx5y86bxlhc" path="res://Assets/Circle.png" id="1_cf5ou"]
+[ext_resource type="Script" uid="uid://bwl4oj0f7thq6" path="res://Scripts/circle.tres.gd" id="1_ny5yc"]
 
 [node name="Circle" type="Node2D"]
+script = ExtResource("1_ny5yc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, -3.8147e-06)
-scale = Vector2(0.403333, 0.39)
+scale = Vector2(0.0704167, 0.0729167)
 texture = ExtResource("1_cf5ou")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -25.0
-offset_top = -63.0
-offset_right = 26.0
-offset_bottom = 47.0
-theme_override_font_sizes/font_size = 80
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.273
+offset_top = -366.667
+offset_right = -276.273
+offset_bottom = -256.667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
 text = "n"
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="."]
-offset_left = -104.0
-offset_top = -100.0
-offset_right = 104.0
-offset_bottom = 99.0
+[node name="Button" type="Button" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.261019
+anchor_top = 0.265427
+anchor_right = 0.752686
+anchor_bottom = 0.772094
+offset_left = -406.612
+offset_top = -410.256
+offset_right = -198.612
+offset_bottom = -211.256
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]
