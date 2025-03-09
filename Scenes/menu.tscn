@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqekoayu7gxoe"]
+[gd_scene load_steps=3 format=3 uid="uid://dqekoayu7gxoe"]
 
 [ext_resource type="Script" uid="uid://c08hx7vw5s2bi" path="res://Scripts/menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://duxlvdpxawy7g" path="res://Assets/cover.webp" id="2_xhh6f"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lti8b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xhh6f")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(300, 150)
@@ -48,20 +59,36 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
-[node name="Title" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.235
-anchor_right = 0.6
-anchor_bottom = 0.3
-offset_top = -0.280014
+anchor_left = 0.303819
+anchor_top = 0.179012
+anchor_right = 0.694722
+anchor_bottom = 0.330519
+offset_right = -0.32
+offset_bottom = -0.176003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.000266656
+anchor_top = -0.0203673
+anchor_right = 0.999762
+anchor_bottom = 0.999551
+offset_left = 0.119995
+offset_top = -0.00400066
+offset_right = 0.106934
+offset_bottom = 0.0439987
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Retro Rower"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Team" to="." method="_on_team_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Practice" to="." method="_on_practice_pressed"]

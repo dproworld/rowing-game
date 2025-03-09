@@ -199,4 +199,4 @@ func generate_separate_lists():
 
 var boat = [null, null, null, null, null, null, null, null]
 
-var trash = 0
+var trash = 10
