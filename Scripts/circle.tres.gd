@@ -14,9 +14,9 @@ var data
 func _ready() -> void:
 	label = $Sprite2D/Label
 	text_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel/Name
-	s_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Strength
-	e_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Endurance
-	t_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer/Ave_Tech
+	s_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Strength
+	e_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Endurance
+	t_label = $/root/Team/CanvasLayer/MarginContainer/VSplitContainer/Panel/MarginContainer/HSplitContainer/VBoxContainer/Ave_Tech
 	boat = global.boat
 	data = global.data_set
 	label.text = str(num)
