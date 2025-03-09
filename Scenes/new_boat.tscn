@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cwun5il01ifxw"]
 
-[ext_resource type="Texture2D" uid="uid://05g6ba8cnml5" path="res://assets/boatTempalate.png" id="1_i6ajv"]
-[ext_resource type="Script" uid="uid://bgy03inhj51cw" path="res://scripts/new_boat.gd" id="1_tv3nm"]
-[ext_resource type="Texture2D" uid="uid://mrsrih4pgtdw" path="res://assets/saveboat.png" id="3_o6vuj"]
+[ext_resource type="Texture2D" uid="uid://dwt8svogtvh1n" path="res://assets/boatTempalate.png" id="1_i6ajv"]
+[ext_resource type="Script" uid="uid://kgsxbdrr0tul" path="res://scripts/new_boat.gd" id="1_tv3nm"]
+[ext_resource type="Texture2D" uid="uid://bvk2yp432411i" path="res://assets/saveboat.png" id="3_o6vuj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iipfh"]
 atlas = ExtResource("3_o6vuj")
@@ -107,6 +107,7 @@ animations = [{
 size = Vector2(121, 21)
 
 [node name="new-boat" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_tv3nm")
 
 [node name="BoatTempalate" type="Sprite2D" parent="."]
