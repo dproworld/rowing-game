@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://dugn2eec843tb"]
+[gd_scene load_steps=10 format=3 uid="uid://dugn2eec843tb"]
 
-[ext_resource type="PackedScene" uid="uid://bw40gf5f11wo0" path="res://Scenes/rower_card.tscn" id="1_hkunw"]
+[ext_resource type="Script" uid="uid://caojmt8oi51iu" path="res://Scripts/team.gd" id="1_lughb"]
+[ext_resource type="Texture2D" uid="uid://brfrdqsc7qjst" path="res://Assets/boat_croppes.png" id="2_lughb"]
+[ext_resource type="Texture2D" uid="uid://luna4ndilmfy" path="res://Assets/New Piskel.png" id="2_mv6eg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mv6eg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ck41f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ib3d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uuywt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyr1m"]
+
+[sub_resource type="Theme" id="Theme_bdi2c"]
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_mv6eg")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_ck41f")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_0ib3d")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_uuywt")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_vyr1m")
 
 [node name="Team" type="Control"]
 layout_mode = 3
@@ -9,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lughb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,10 +42,226 @@ grow_vertical = 2
 [node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="Back" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_constants/margin_left = 15
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.159
+anchor_right = 0.799
+anchor_bottom = 0.483
+offset_left = 0.0639992
+offset_top = 0.0779953
+offset_right = 0.0139923
+offset_bottom = 0.0859985
+texture = ExtResource("2_mv6eg")
+
+[node name="Name" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.545
+anchor_right = 0.5
+anchor_bottom = 0.545
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+
+[node name="Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Strength: "
+
+[node name="Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.726
+anchor_right = 0.5
+anchor_bottom = 0.726
+offset_left = -44.0
+offset_top = -11.678
+offset_right = 48.0
+offset_bottom = 11.322
+grow_horizontal = 2
+grow_vertical = 2
+text = "Endurance: "
+
+[node name="Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tech: "
+
+[node name="Select" type="Button" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.868
+anchor_right = 0.5
+anchor_bottom = 0.955
+offset_left = -0.0360031
+offset_top = 0.145996
+offset_right = 1.10599
+grow_horizontal = 2
+grow_vertical = 0
+text = "Select"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.23
+
+[node name="CardsContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_bdi2c")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 50
+columns = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/HSplitContainer"]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
 layout_mode = 2
 
-[node name="Rower_Card" parent="CanvasLayer" instance=ExtResource("1_hkunw")]
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect7" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect8" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect9" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect10" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect11" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="ColorRect12" type="ColorRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/ScrollContainer/CardsContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.78
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Ave Strength" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ave Strength:  -1"
+horizontal_alignment = 1
+
+[node name="Ave Endurance" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Ave Endurance:  -1"
+horizontal_alignment = 1
+
+[node name="Ave Tech" type="Label" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ave Tech:  -1"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.01
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VSplitContainer/Panel/HSplitContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.37
+texture = ExtResource("2_lughb")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VSplitContainer/Panel2/HSplitContainer/VSplitContainer/MarginContainer2/Back" to="." method="_on_back_pressed"]

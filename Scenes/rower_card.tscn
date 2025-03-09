@@ -1,34 +1,44 @@
 [gd_scene load_steps=2 format=3 uid="uid://bw40gf5f11wo0"]
 
-[ext_resource type="Script" uid="uid://86xws7i82rm7" path="res://Scripts/rower_card.gd" id="1_lg53v"]
+[ext_resource type="Script" uid="uid://c4ayd21le6ejm" path="res://Scripts/rower_card.gd" id="1_7vp81"]
 
-[node name="Rower_Card" type="Node2D"]
-script = ExtResource("1_lg53v")
+[node name="Rower_Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vp81")
 
-[node name="Name" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 10.0
-offset_right = 72.0
-offset_bottom = 33.0
-text = "name"
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Strength" type="Label" parent="."]
-offset_left = 44.0
-offset_top = 58.0
-offset_right = 122.0
-offset_bottom = 98.0
-text = "strength"
+[node name="Name" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 23.0
+text = "Name"
 
-[node name="Endurance" type="Label" parent="."]
-offset_left = 145.0
-offset_top = 10.0
-offset_right = 228.0
-offset_bottom = 33.0
+[node name="Strength" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 67.0
+offset_bottom = 46.0
+text = "Strength"
+
+[node name="Endurance" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 83.0
+offset_bottom = 69.0
 text = "Endurance"
 
-[node name="Tech" type="Label" parent="."]
-offset_left = 154.0
-offset_top = 48.0
-offset_right = 265.0
-offset_bottom = 97.0
-text = "tech"
+[node name="Tech" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 69.0
+offset_right = 46.0
+offset_bottom = 92.0
+text = "Tech"
